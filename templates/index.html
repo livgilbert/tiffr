@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image engoodener for the MQ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Engoodener</h1>
+        <p>If neither width nor height are selected, size will stay the same. If one is selected, the image will resize and maintain its aspect ratio. If two are selected, the image will resize and may not maintain its aspect ratio. Default width is 8 for article graphics.</p>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+              <p>Width (in) <input type="number" name="width"  value=8> </p>
+              <p>Height (in) <input type="number" name="height" > </p>
+            <button type="submit">Upload and Convert</button>
+        </form>
+
+        {% if cmyk_image %}
+            <h2>Output Images:</h2>
+            <div>
+                <h3>CMYK TIFF ({{ cmyk_image }})</h3>
+                <a href="{{ url_for('send_output', filename=cmyk_image) }}" download>
+                    <button>Download CMYK TIFF</button>
+                </a>
+            </div>
+            <div>
+              <h3>Grayscale TIFF ({{ grayscale_image }})</h3>
+                <a href="{{ url_for('send_output', filename=grayscale_image) }}" download>
+                    <button>Download Grayscale TIFF</button>
+                </a>
+            </div>
+        {% endif %}
+        <p style="font-size: 8pt">Made with 💕 by liv</p>
+    </div>
+</body>
+</html>
+

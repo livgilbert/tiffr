@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    grid-column: 1/-1
+}
+
+form {
+  display: grid;
+  grid-template-columns: 50% 25% 25%;
+}
+
+form p input {
+  width: 50%;
+}
+
+form p {
+  margin: 0;
+  padding: 0;
+}
